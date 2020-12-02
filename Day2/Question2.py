@@ -9,7 +9,7 @@ def isvalid(min, max, letter, password):
     if password[min - 1] == letter and password[max -1 ] == letter:
         return False
     elif password[min - 1] == letter or password[max - 1] == letter:
-        print(min, max, letter, password)
+        #  print(min, max, letter, password)
         return True
     else: return False
 
