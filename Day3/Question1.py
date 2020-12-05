@@ -5,7 +5,7 @@ def getdata():
         for values in rawdata:
             value = values.split()
             data.append(value)
-        print(data)
+        # print(data)
         return data  # returns list of values as strings
 
 
@@ -15,7 +15,7 @@ def checkroute(data):
     for values in data:
         for value in values:
             char = (value[thisindex])
-            print(char, thisindex, data.index(values))
+            # print(char, thisindex, data.index(values))
             if thisindex + 1 >= len(value):
                 thisindex = 2
             elif thisindex + 2 >= len(value):
