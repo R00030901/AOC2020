@@ -1,33 +1,20 @@
 def readfromfile():
-    BirthYear = 'byr'
-    IssueYear = 'iyr'
-    ExpirationYear = 'eyr'
-    Height = 'hgt'
-    HairColor = 'hcl'
-    EyeColor = 'ecl'
-    PassportID = 'pid'
-    CountryID = 'cid'
-    with open('raw_data', 'r+', newline=None) as data:
-        rawdata = data.readline()
+    BirthYear, IssueYear, ExpirationYear, Height, \
+    HairColor, EyeColor, CountryID, PassportID = '', '', '', '', '', '', '', ''
+
+    with open('raw_data', 'r', newline='') as data:
         procdata = []
         for lines in data:
-            # print(lines)
-            lines = lines.split(' ')
-            lines = lines[0].rstrip()
-            procdata.append(lines)
+            data = lines.rstrip()
+            data = data.split(' ')
+            for value in data:
+                procdata.append(value)
+
         passports = {}
         for values in procdata:
-            BirthYear
-            IssueYear
-            ExpirationYear
-            Height
-            HairColor
-            EyeColor
-            PassportID
-            CountryID
 
             key = values[0:3]
-            # print(key)
+            # print(values, key)
 
             if key == 'byr':
                 BirthYear = values[4:]
@@ -49,14 +36,10 @@ def readfromfile():
                 passports[PassportID] = {'byr': BirthYear, 'iyr': IssueYear, 'eyr': ExpirationYear, 'hgt': Height,
                                          'hcl': HairColor, 'ecl': EyeColor, 'cid': CountryID}
                 # print(PassportID, ':', passports[PassportID])
-                BirthYear = ''
-                IssueYear = ''
-                ExpirationYear = ''
-                Height = ''
-                HairColor = ''
-                EyeColor = ''
-                PassportID = ''
-                CountryID = ''
+
+                BirthYear, IssueYear, ExpirationYear, Height, \
+                HairColor, EyeColor, CountryID, PassportID = '', '', '', '', '', '', '', ''
+
             else:
                 print('Value not recognised: ', values)
         return passports
